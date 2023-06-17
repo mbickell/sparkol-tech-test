@@ -4,5 +4,5 @@ import styles from "./login.module.scss";
 interface IProps {}
 
 export const LoginView: React.FC<IProps> = () => {
-  return <div>LoginView</div>;
+  return <div className={styles.login}>LoginView</div>;
 };

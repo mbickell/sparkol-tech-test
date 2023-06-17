@@ -1,0 +1,5 @@
+@use "../../stylesheets/abstracts/variables";
+
+.login {
+  background-color: variables.$primary-color;
+}
