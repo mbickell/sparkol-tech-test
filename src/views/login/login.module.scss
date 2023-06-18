@@ -8,7 +8,6 @@
 
   .container {
     background-color: variables.$white;
-    padding: variables.$spacing-xlarge variables.$spacing-xxlarge;
     border-radius: variables.$border-radius-mid;
     color: variables.$primary-color;
     height: 500px;
@@ -16,9 +15,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     @media only screen and (max-width: variables.$screen-size-tablet) {
-      padding: variables.$spacing-large variables.$spacing-xlarge;
+      width: 300px;
     }
 
     h1 {
