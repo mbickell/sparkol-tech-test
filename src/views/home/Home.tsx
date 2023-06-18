@@ -12,6 +12,7 @@ export const HomeView: React.FC<IProps> = () => {
     <View className={styles.home}>
       <h1>Sparkol Tech Test</h1>
       <p>Welcome {user?.name}</p>
+      <p>Click below to sign out</p>
       <Button variant="secondary" onClick={signOut}>
         Sign out
       </Button>
