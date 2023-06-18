@@ -7,16 +7,19 @@
 
   .container {
     background-color: variables.$white;
-    padding: variables.$spacing-large variables.$spacing-xlarge;
+    padding: variables.$spacing-xlarge variables.$spacing-xxlarge;
     border-radius: variables.$border-radius-mid;
     color: variables.$primary-color;
 
     h1 {
+      margin: 0;
+      margin-bottom: variables.$spacing-large;
     }
 
     .loginForm {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
 
       label {
         display: flex;
@@ -24,10 +27,14 @@
         margin: variables.$spacing-small 0;
 
         input {
-          border: 1px solid variables.$mid-grey;
+          border: 2px solid variables.$mid-grey;
           padding: variables.$spacing-small;
           margin: variables.$spacing-xsmall 0;
         }
+      }
+
+      .submitButton {
+        margin-top: variables.$spacing-small;
       }
     }
   }

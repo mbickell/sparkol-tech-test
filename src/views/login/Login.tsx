@@ -1,12 +1,14 @@
 import * as React from "react";
 import styles from "./login.module.scss";
 import { View } from "../../components/View/View";
+import { Button } from "../../components/button/Button";
 
 interface IProps {}
 
 export const LoginView: React.FC<IProps> = () => {
   const login = (e: React.FormEvent) => {
     e.preventDefault();
+    alert("hello");
     return;
   };
 
@@ -23,7 +25,9 @@ export const LoginView: React.FC<IProps> = () => {
             Email:
             <input type="email" id="email" />
           </label>
-          <button type="submit">Login</button>
+          <Button className={styles.submitButton} type="submit">
+            Login
+          </Button>
         </form>
       </section>
     </View>
