@@ -1,0 +1,13 @@
+@use "../../stylesheets/abstracts/variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: variables.$spacing-small variables.$spacing-large;
+  height: variables.$header-height;
+
+  h1 {
+    color: variables.$primary-color;
+    margin: 0;
+  }
+}

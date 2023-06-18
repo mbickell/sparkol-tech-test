@@ -1,7 +1,10 @@
 @use "../../stylesheets/abstracts/variables";
 
 .home {
-  h1 {
+  min-height: calc(100vh - variables.$header-height);
+
+  h2 {
     margin: 0;
+    font-size: variables.$font-size-heading;
   }
 }

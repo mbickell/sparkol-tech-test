@@ -10,5 +10,5 @@ export const View: React.FC<React.PropsWithChildren<IProps>> = ({
   children,
   className
 }) => {
-  return <main className={classNames(styles.view, className)}>{children}</main>;
+  return <main className={classNames(className, styles.view)}>{children}</main>;
 };

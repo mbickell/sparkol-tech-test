@@ -4,12 +4,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 
   .container {
     background-color: variables.$white;
     padding: variables.$spacing-xlarge variables.$spacing-xxlarge;
     border-radius: variables.$border-radius-mid;
     color: variables.$primary-color;
+
+    @media only screen and (max-width: variables.$screen-size-tablet) {
+      padding: variables.$spacing-large variables.$spacing-xlarge;
+    }
 
     h1 {
       margin: 0;

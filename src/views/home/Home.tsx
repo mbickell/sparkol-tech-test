@@ -9,7 +9,7 @@ export const HomeView: React.FC<IProps> = () => {
   const { user } = useAuthContext();
   return (
     <View className={styles.home}>
-      <h1>Sparkol Tech Test</h1>
+      <h2>Sparkol Tech Test</h2>
       <p>Welcome {user?.name}</p>
     </View>
   );

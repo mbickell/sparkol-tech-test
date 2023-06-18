@@ -12,6 +12,7 @@ interface IAuthContext {
   user?: IUser;
   authToken?: string;
   login?: ({ username, password }: ILoginRequest) => Promise<void>;
+  signOut?: () => void;
 }
 
 const AuthContext = React.createContext({} as IAuthContext);
@@ -43,8 +44,15 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({
     setAuthToken(data.token);
   };
 
+  const signOut = () => {
+    setUser({ name: "", id: 0 });
+    setUserStorage({ name: "", id: 0 });
+    setAuthToken(undefined);
+    setAuthTokenStorage("");
+  };
+
   return (
-    <AuthContext.Provider value={{ user, authToken, login }}>
+    <AuthContext.Provider value={{ user, authToken, login, signOut }}>
       {children}
     </AuthContext.Provider>
   );

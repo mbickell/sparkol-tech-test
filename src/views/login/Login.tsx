@@ -49,7 +49,7 @@ export const LoginView: React.FC<IProps> = () => {
             />
           </label>
           <Button className={styles.submitButton} type="submit">
-            Login
+            Sign in
           </Button>
         </form>
       </section>
