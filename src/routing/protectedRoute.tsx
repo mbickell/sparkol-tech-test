@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { routePaths } from "./routePaths";
 
 interface IProps {
@@ -11,8 +11,8 @@ export const ProtectedRoute: React.FC<React.PropsWithChildren<IProps>> = ({
   children
 }) => {
   if (!isAllowed) {
-    return <Navigate to={routePaths.auth} />;
+    return <Navigate to={routePaths.auth} replace />;
   }
 
-  return children ? <>{children}</> : <Outlet />;
+  return <>{children}</>;
 };

@@ -4,26 +4,27 @@ import { routePaths } from "./routePaths";
 import { HomeView } from "../views/home/Home";
 import { LoginView } from "../views/login/Login";
 import { ProtectedRoute } from "./protectedRoute";
+import { useAuthContext } from "../providers/auth";
 
 interface IProps {}
 
-const router = createBrowserRouter([
-  {
-    path: routePaths.root,
-    element: <ProtectedRoute />,
-    children: [
-      {
-        index: true,
-        element: <HomeView />
-      }
-    ]
-  },
-  {
-    path: routePaths.auth,
-    element: <LoginView />
-  }
-]);
-
 export const Routes: React.FC<IProps> = () => {
+  const { user } = useAuthContext();
+
+  const router = createBrowserRouter([
+    {
+      path: routePaths.root,
+      element: (
+        <ProtectedRoute isAllowed={!!user || user === undefined}>
+          <HomeView />
+        </ProtectedRoute>
+      )
+    },
+    {
+      path: routePaths.auth,
+      element: <LoginView />
+    }
+  ]);
+
   return <RouterProvider router={router} />;
 };

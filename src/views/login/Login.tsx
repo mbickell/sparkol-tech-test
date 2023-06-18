@@ -1,21 +1,31 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./login.module.scss";
 import { View } from "../../components/View/View";
 import { Button } from "../../components/button/Button";
-import { login, verifyToken } from "../../api/auth";
+import { useAuthContext } from "../../providers/auth";
+import { routePaths } from "../../routing/routePaths";
 
 interface IProps {}
 
 export const LoginView: React.FC<IProps> = () => {
+  const [username, setUsername] = React.useState<string>();
+  const [password, setPassword] = React.useState<string>();
+
+  const { login, user } = useAuthContext();
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data = await login({ username: "jeff1967", password: "hotdog" });
-    console.log(data);
-    const token = await verifyToken(data.token);
-    console.log(token);
-
-    return;
+    login?.({ username, password });
   };
+
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!!user) {
+      navigate(routePaths.root);
+    }
+  }, [navigate, user]);
 
   return (
     <View className={styles.login}>
@@ -24,11 +34,19 @@ export const LoginView: React.FC<IProps> = () => {
         <form className={styles.loginForm} onSubmit={submit}>
           <label htmlFor="username">
             Username:
-            <input type="text" id="username" />
+            <input
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </label>
           <label htmlFor="password">
             Password:
-            <input type="password" id="password" />
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
           <Button className={styles.submitButton} type="submit">
             Login
