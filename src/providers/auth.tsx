@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ILoginRequest, IUser } from "../types/auth";
+import { ILoginRequest, ILoginResponse, IUser } from "../types/auth";
 import {
   getAuthTokenStorage,
   getUserStorage,
@@ -7,12 +7,14 @@ import {
   setUserStorage
 } from "../helpers/storage/auth";
 import { loginRequest } from "../api/auth";
+import { AxiosError } from "axios";
 
 interface IAuthContext {
   user?: IUser;
   authToken?: string;
   login?: ({ username, password }: ILoginRequest) => Promise<void>;
   signOut?: () => void;
+  error?: AxiosError;
 }
 
 export const AuthContext = React.createContext({} as IAuthContext);
@@ -22,6 +24,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({
 }) => {
   const [user, setUser] = React.useState<IUser>({ name: "", id: 0 });
   const [authToken, setAuthToken] = React.useState<string>();
+  const [error, setError] = React.useState<AxiosError>();
 
   React.useEffect(() => {
     setUser(getUserStorage());
@@ -39,9 +42,17 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   }, [user, authToken]);
 
   const login = async ({ username, password }: ILoginRequest) => {
-    const data = await loginRequest({ username, password });
-    setUser(data.user);
-    setAuthToken(data.token);
+    setError(undefined);
+    try {
+      const data = (await loginRequest({
+        username,
+        password
+      })) as ILoginResponse;
+      setUser(data.user);
+      setAuthToken(data.token);
+    } catch (e) {
+      setError(e as AxiosError);
+    }
   };
 
   const signOut = () => {
@@ -52,7 +63,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   };
 
   return (
-    <AuthContext.Provider value={{ user, authToken, login, signOut }}>
+    <AuthContext.Provider value={{ user, authToken, login, signOut, error }}>
       {children}
     </AuthContext.Provider>
   );

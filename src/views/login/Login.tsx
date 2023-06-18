@@ -12,11 +12,11 @@ export const LoginView: React.FC<IProps> = () => {
   const [username, setUsername] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
 
-  const { login, user } = useAuthContext();
+  const { login, user, error } = useAuthContext();
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login?.({ username, password });
+    await login?.({ username, password });
   };
 
   const navigate = useNavigate();
@@ -52,6 +52,9 @@ export const LoginView: React.FC<IProps> = () => {
             Sign in
           </Button>
         </form>
+        <p className={styles.error}>
+          {error && (error?.response?.data as string)}
+        </p>
       </section>
     </View>
   );

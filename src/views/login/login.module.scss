@@ -8,12 +8,17 @@
 
   .container {
     background-color: variables.$white;
-    padding: variables.$spacing-xlarge variables.$spacing-xxlarge;
     border-radius: variables.$border-radius-mid;
     color: variables.$primary-color;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @media only screen and (max-width: variables.$screen-size-tablet) {
-      padding: variables.$spacing-large variables.$spacing-xlarge;
+      width: 300px;
     }
 
     h1 {
@@ -41,6 +46,13 @@
       .submitButton {
         margin-top: variables.$spacing-small;
       }
+    }
+
+    .error {
+      color: variables.$error-color;
+      margin: 0;
+      margin-top: variables.$spacing-xsmall;
+      font-size: variables.$font-size-subtext;
     }
   }
 }
