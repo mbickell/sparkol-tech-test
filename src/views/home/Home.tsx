@@ -2,20 +2,15 @@ import * as React from "react";
 import styles from "./home.module.scss";
 import { View } from "../../components/view/View";
 import { useAuthContext } from "../../providers/auth";
-import { Button } from "../../components/button/Button";
 
 interface IProps {}
 
 export const HomeView: React.FC<IProps> = () => {
-  const { user, signOut } = useAuthContext();
+  const { user } = useAuthContext();
   return (
     <View className={styles.home}>
-      <h1>Sparkol Tech Test</h1>
+      <h2>Sparkol Tech Test</h2>
       <p>Welcome {user?.name}</p>
-      <p>Click below to sign out</p>
-      <Button variant="secondary" onClick={signOut}>
-        Sign out
-      </Button>
     </View>
   );
 };
