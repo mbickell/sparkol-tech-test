@@ -8,3 +8,7 @@ export const getStorageValue = <T>(key: Keys): T => {
 export const setStorageValue = (key: Keys, value: any) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
+
+export const clearStorageValue = (key: Keys) => {
+  localStorage.removeItem(key);
+};

@@ -22,7 +22,7 @@ export const LoginView: React.FC<IProps> = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (!!user) {
+    if (user?.name) {
       navigate(routePaths.root);
     }
   }, [navigate, user]);

@@ -1,8 +1,16 @@
 import * as React from "react";
 import styles from "./home.module.scss";
+import { View } from "../../components/view/View";
+import { useAuthContext } from "../../providers/auth";
 
 interface IProps {}
 
 export const HomeView: React.FC<IProps> = () => {
-  return <div>HomeView</div>;
+  const { user } = useAuthContext();
+  return (
+    <View className={styles.home}>
+      <h1>Sparkol Tech Test</h1>
+      <p>Welcome {user?.name}</p>
+    </View>
+  );
 };
