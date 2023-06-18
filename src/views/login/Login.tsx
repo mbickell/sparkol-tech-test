@@ -21,9 +21,9 @@ export const LoginView: React.FC<IProps> = () => {
             Username:
             <input type="text" id="username" />
           </label>
-          <label htmlFor="email">
-            Email:
-            <input type="email" id="email" />
+          <label htmlFor="password">
+            Password:
+            <input type="password" id="password" />
           </label>
           <Button className={styles.submitButton} type="submit">
             Login
