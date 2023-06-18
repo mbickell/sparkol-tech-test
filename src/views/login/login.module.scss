@@ -1,5 +1,34 @@
 @use "../../stylesheets/abstracts/variables";
 
 .login {
-  background-color: variables.$primary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    background-color: variables.$white;
+    padding: variables.$spacing-large variables.$spacing-xlarge;
+    border-radius: variables.$border-radius-mid;
+    color: variables.$primary-color;
+
+    h1 {
+    }
+
+    .loginForm {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        margin: variables.$spacing-small 0;
+
+        input {
+          border: 1px solid variables.$mid-grey;
+          padding: variables.$spacing-small;
+          margin: variables.$spacing-xsmall 0;
+        }
+      }
+    }
+  }
 }

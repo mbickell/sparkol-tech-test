@@ -5,9 +5,11 @@ $font-size-subheading: 3rem;
 $font-size-subtext: 1.6rem;
 
 // Spacing
+$spacing-xsmall: 0.4rem;
 $spacing-small: 0.8rem;
 $spacing-medium: 1.6rem;
 $spacing-large: 3.2rem;
+$spacing-xlarge: 6.4rem;
 
 // Colours
 $text-color: #1d1d1b;
@@ -17,3 +19,8 @@ $white: #ffffff;
 $light-grey: rgb(237, 237, 237) !default;
 $mid-grey: rgb(153, 153, 153) !default;
 $dark-grey: rgb(68, 68, 68) !default;
+
+// Border
+$border-radius-small: 0.5rem;
+$border-radius-mid: 1.5rem;
+$border-radius-round: 2.5rem;
