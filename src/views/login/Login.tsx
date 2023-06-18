@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.scss";
-import { View } from "../../components/View/View";
+import { View } from "../../components/blah/View";
 import { Button } from "../../components/button/Button";
 import { useAuthContext } from "../../providers/auth";
 import { routePaths } from "../../routing/routePaths";
