@@ -15,7 +15,7 @@ interface IAuthContext {
   signOut?: () => void;
 }
 
-const AuthContext = React.createContext({} as IAuthContext);
+export const AuthContext = React.createContext({} as IAuthContext);
 
 export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   children
