@@ -15,7 +15,7 @@ export const Routes: React.FC<IProps> = () => {
     {
       path: routePaths.root,
       element: (
-        <ProtectedRoute isAllowed={!!user || user === undefined}>
+        <ProtectedRoute isAllowed={!!user?.name}>
           <HomeView />
         </ProtectedRoute>
       )

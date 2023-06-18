@@ -19,7 +19,7 @@ const AuthContext = React.createContext({} as IAuthContext);
 export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   children
 }) => {
-  const [user, setUser] = React.useState<IUser>();
+  const [user, setUser] = React.useState<IUser>({ name: "", id: 0 });
   const [authToken, setAuthToken] = React.useState<string>();
 
   React.useEffect(() => {
@@ -32,7 +32,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({
       setAuthTokenStorage(authToken);
     }
 
-    if (user) {
+    if (user.name) {
       setUserStorage(user);
     }
   }, [user, authToken]);
